@@ -4,7 +4,7 @@ A comprehensive URL shortener API with advanced analytics, user authentication v
 
 ## 🚀 Live Demo
 
-**Deployment URL:** [Your deployed application URL here]
+**Deployment URL:** ([https://url-shortener-3dom.onrender.com/])
 
 ## ✨ Features
 
@@ -59,20 +59,13 @@ tests/               # Test files
 - **Containerization**: Docker, Docker Compose
 - **Analytics**: UA-Parser, GeoIP-Lite
 
-## 📋 Prerequisites
-
-- Node.js 16+ 
-- PostgreSQL 12+
-- Redis 6+
-- Docker & Docker Compose (for containerized deployment)
-- Google OAuth credentials
 
 ## 🚀 Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/abhignanvemu2/urlShortner
 cd url-shortener-api
 ```
 
@@ -80,6 +73,8 @@ cd url-shortener-api
 
 ```bash
 npm install
+
+npm run migrate (to get all the tables )
 ```
 
 ### 3. Environment Setup
@@ -114,10 +109,10 @@ JWT_EXPIRE=7d
 # Google OAuth Configuration
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
-GOOGLE_CALLBACK_URL=http://localhost:3000/auth/google/callback
+GOOGLE_CALLBACK_URL=https://url-shortener-3dom.onrender.com/auth/google/callback
 
 # Base URL for short links
-BASE_URL=http://localhost:3000
+BASE_URL=https://url-shortener-3dom.onrender.com
 ```
 
 ### 4. Database Setup
@@ -144,7 +139,7 @@ Production mode:
 npm start
 ```
 
-The API will be available at `http://localhost:3000`
+The API will be available at `https://url-shortener-3dom.onrender.com`
 
 ## 🐳 Docker Deployment
 
@@ -176,7 +171,7 @@ docker build -t url-shortener-api .
 ## 📖 API Documentation
 
 Once the server is running, access the interactive API documentation at:
-`http://localhost:3000/api/docs`
+`https://url-shortener-3dom.onrender.com/api/docs`
 
 ### Key Endpoints
 
@@ -196,7 +191,7 @@ Once the server is running, access the interactive API documentation at:
 #### Analytics
 - `GET /api/analytics/:alias` - URL-specific analytics
 - `GET /api/analytics/topic/:topic` - Topic-based analytics
-- `GET /api/analytics/overall` - Overall user analytics
+- `GET /api/analytics/urls/overall` - Overall user analytics
 
 ## 🧪 Testing
 
@@ -288,14 +283,6 @@ The application provides detailed analytics including:
 - **Unique User Tracking**: IP-based unique user identification
 - **Time-series Data**: 7-day historical analytics
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
 ## 📝 Challenges Faced & Solutions
 
 ### 1. **Unique Short Code Generation**
@@ -333,10 +320,6 @@ The application provides detailed analytics including:
 - **API Keys**: Allow programmatic access via API keys
 - **Team Management**: Multi-user account management
 - **A/B Testing**: Built-in A/B testing for URLs
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

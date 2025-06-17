@@ -322,7 +322,7 @@ router.get('/topic/:topic',
 
 /**
  * @swagger
- * /api/analytics/overall:
+ * /api/analytics/urls/overall:
  *   get:
  *     summary: Get overall analytics for all user's URLs
  *     tags: [Analytics]

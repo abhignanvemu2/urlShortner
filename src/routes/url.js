@@ -159,7 +159,7 @@ router.post('/shorten',
       // Cache the URL mapping in Redis
       const redis = getRedisClient();
       const cacheKey = customAlias || shortCode;
-      await redis.setEx(`url:${cacheKey}`, 3600, longUrl); // Cache for 1 hour
+      await redis.setEx(`url:${cacheKey}`, 3600, longUrl); 
 
       const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
       const shortUrl = `${baseUrl}/${customAlias || shortCode}`;

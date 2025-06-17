@@ -30,7 +30,7 @@ router.get('/:alias', async (req, res, next) => {
   try {
     const { alias } = req.params;
     if (alias === 'favicon.ico') {
-      return res.status(204).end(); // No Content
+      return res.status(204).end();
     }
     const redis = getRedisClient();
 

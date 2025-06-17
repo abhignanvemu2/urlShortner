@@ -17,10 +17,12 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const origins = process.env.CORS_ORIGINS?.split(',');
 // Security middleware
 app.use(helmet());
 app.use(cors({
- origin: ['http://localhost:3000', 'http://localhost:3001'],
+//  origin: ['http://localhost:3000', 'http://localhost:3001'],
+ origin: origins,
  credentials: true
 }));
 
@@ -47,11 +49,11 @@ require('./config/passport');
 // Routes
 app.get('/swagger.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.send(specs); // already generated using swaggerJsdoc
+  res.send(specs); 
 });
+app.use('/api/analytics', analyticsRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api', urlRoutes);
-app.use('/api/analytics', analyticsRoutes);
 app.use('/', redirectRoutes);
 
 // Swagger documentation
@@ -82,7 +84,7 @@ async function startServer() {
   try {
     // Test database connection
     await sequelize.authenticate();
-    console.log('✅ Database connection established successfully.');
+    console.log(' Database connection established successfully.');
 
      // Check if database has any tables
     const [results] = await sequelize.query(`
@@ -91,19 +93,19 @@ async function startServer() {
     `);
 
     if (results?.length == 0) {
-      console.log('📦 No tables found. Running sequelize.sync()...');
+      console.log(' No tables found. Running sequelize.sync()...');
       await sequelize.sync({ alter: true });
-      console.log('✅ Database models synchronized.');
+      console.log(' Database models synchronized.');
     } 
 
     // Connect to Redis
     await connectRedis();
-    console.log('✅ Redis connection established.');
+    console.log(' Redis connection established.');
 
     // Start server
       if (process.env.NODE_ENV !== 'test') {
       app.listen(PORT, () => {
-        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(` Server running on port ${PORT}`);
         console.log(` API Docs: http://localhost:${PORT}/api/docs`);
       });
     }
@@ -112,7 +114,7 @@ async function startServer() {
   if (process.env.NODE_ENV !== 'test') {
     process.exit(1);
   } else {
-    throw error; // Let Jest handle the error in test mode
+    throw error; 
   }
 }
 }
