@@ -12,10 +12,8 @@
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
-    "seed": "npx sequelize-cli db:seed:all",
-    "seed:undo": "npx sequelize-cli db:seed:undo:all",
-    "db:setup": "npm run migrate && npm run seed",
-    "db:reset": "npm run migrate:reset && npm run seed"
+    "db:setup": "npm run migrate",
+    "db:reset": "npm run migrate:reset"
   },
   "dependencies": {
     "express": "^4.18.2",
