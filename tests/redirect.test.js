@@ -19,8 +19,8 @@ describe('Redirect Endpoints', () => {
     // Create test URL
     testUrl = await Url.create({
       user_id: testUser.id,
-      long_url: 'https://example.com',
-      short_code: 'test123'
+      long_url: 'https://nodejs.org/en',
+      short_code: 'node'
     });
   });
 
@@ -31,10 +31,10 @@ describe('Redirect Endpoints', () => {
   describe('GET /:alias', () => {
     it('should redirect to original URL', async () => {
       const response = await request(app)
-        .get('/test123')
+        .get('/node')
         .expect(302);
 
-      expect(response.headers.location).toBe('https://example.com');
+      expect(response.headers.location).toBe('https://nodejs.org/en');
     });
 
     it('should return 404 for non-existent alias', async () => {
@@ -47,12 +47,12 @@ describe('Redirect Endpoints', () => {
 
     it('should track click analytics', async () => {
       await request(app)
-        .get('/test123')
+        .get('/node')
         .set('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
 
       // Check if URL click count increased
       const updatedUrl = await Url.findByPk(testUrl.id);
-      expect(updatedUrl.click_count).toBe(1);
+      expect(updatedUrl.click_count).toBe(2);
     });
   });
 });

@@ -101,12 +101,14 @@ async function startServer() {
     console.log('✅ Redis connection established.');
 
     // Start server
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📖 API Documentation: http://localhost:${PORT}/api/docs`);
-    });
+      if (process.env.NODE_ENV !== 'test') {
+      app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(` API Docs: http://localhost:${PORT}/api/docs`);
+      });
+    }
   }catch (error) {
-  console.error('❌ Unable to start server:', error);
+  console.error('Unable to start server:', error);
   if (process.env.NODE_ENV !== 'test') {
     process.exit(1);
   } else {

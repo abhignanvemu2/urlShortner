@@ -62,7 +62,7 @@ module.exports = {
       paranoid: true
     },
     dialectOptions: {
-      ssl: process.env.NODE_ENV === 'production' ? {
+      ssl: process.env.NODE_ENV == 'production' ? {
         require: true,
         rejectUnauthorized: false
       } : false

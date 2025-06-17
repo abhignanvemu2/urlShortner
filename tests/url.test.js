@@ -3,11 +3,11 @@ const request = require('supertest');
 const jwt = require('jsonwebtoken');
 const app = require('../src/server');
 const { sequelize, User, Url } = require('../src/models');
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
 
 describe('URL Endpoints', () => {
   let authToken;
-  let  ;
+  let testUser;
 
   beforeAll(async () => {
     await sequelize.sync({ force: true });
