@@ -6,7 +6,7 @@ A comprehensive URL shortener API with advanced analytics, user authentication v
 
 **Deployment URL:** 
 ```
-https://url-shortener-3dom.onrender.com/
+[{https://url-shortener-3dom.onrender.com/}]
 ```
 
 ## ✨ Features
