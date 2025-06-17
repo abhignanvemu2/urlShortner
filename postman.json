@@ -85,7 +85,7 @@
       "name": "Health Check",
       "request": {
         "method": "GET",
-        "url": "http://localhost:3000/health"
+        "url": "http://localhost:3000/"
       }
     }
   ]
