@@ -4,7 +4,10 @@ A comprehensive URL shortener API with advanced analytics, user authentication v
 
 ## 🚀 Live Demo
 
-**Deployment URL:** ([https://url-shortener-3dom.onrender.com/])
+**Deployment URL:** 
+```
+https://url-shortener-3dom.onrender.com/
+```
 
 ## ✨ Features
 
